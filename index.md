@@ -4,8 +4,6 @@ title: Tarmach Privacy Policy
 
 # Tarmach — Privacy Policy
 
->
->
 
 **Last updated:** 2 September 2026
 
@@ -21,11 +19,11 @@ choose to use them. They are named individually below.
 
 ## Who is responsible
 
-Tarmach is developed by *Harry Salt, trading as Harry Salt*, a sole
-trader based in London, United Kingdom, who is the data controller for the
-limited purposes described here.
+Tarmach is developed by **Harry Salt**, a sole trader based in London,
+United Kingdom, who is the data controller for the limited purposes
+described here.
 
-**Contact:** `tarmach@spill850@passmail.net` 
+**Contact:** <tarmach.spill850@passmail.net>
 
 ## What the app collects, and where it goes
 
