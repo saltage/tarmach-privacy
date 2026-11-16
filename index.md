@@ -2,20 +2,17 @@
 title: Tarmach Privacy Policy
 ---
 
-# Tarmach — Privacy Policy
-
-
-**Last updated:** 2 September 2026
+**Effective date:** 16 November 2026
 
 ## The short version
 
 Tarmach records your journeys using your iPhone's own sensors and keeps them
-on your iPhone. There is no Tarmach account, no Tarmach server, and no
-analytics. The developer never receives your journeys, your locations, your
-photographs or your vehicle records — there is nowhere for them to be sent.
+on your iPhone. There is no Tarmach account, server or analytics service. The
+app does not upload your journeys, photos or vehicle records to the developer.
 
-Three optional features contact someone else's server, and only when you
-choose to use them. They are named individually below.
+BMW sync and fuel-price lookups contact other services when you enable them.
+The app also uses Apple Maps for some maps and nearby searches. The details
+are below.
 
 ## Who is responsible
 
@@ -25,25 +22,28 @@ described here.
 
 **Contact:** <tarmach.spill850@passmail.net>
 
+[Tarmach support](support/)
+
 ## What the app collects, and where it goes
 
-### Stored on your device only
+### Stored on your device
 
-All of the following is written to a database inside the app's own storage
-area on your iPhone. It is not transmitted anywhere:
+The app keeps the following in its storage area on your iPhone:
 
 - **Location while recording a journey** — approximately one position per
   second while a journey is running, including speed, heading and altitude,
   forming the route you see on the map.
-- **Motion data** — accelerometer and gyroscope readings used to detect
-  braking, acceleration and cornering. Individual readings are not kept; only
-  the events detected from them.
+- **Motion data** — the app uses accelerometer and gyroscope readings to
+  estimate braking, acceleration and cornering. It normally saves the events
+  detected from them. If you switch on **Capture raw motion** in Settings, it
+  also saves the sensor readings in a separate file that you can export or
+  delete.
 - **Journey records** — start and end times, distance, duration, and the
   places you start and finish at.
 - **Vehicle records** — anything you enter yourself: cars, registrations,
   service history, modifications, documents and photographs.
-- **Fuel records** — refills, prices, odometer readings, and any receipt
-  photographs you scan or attach.
+- **Fuel and charging records** — fills, charges, prices, odometer readings
+  and any receipt photographs you scan or attach.
 - **App settings** — your preferences, stored in the iPhone's standard app
   settings area.
 
@@ -59,19 +59,38 @@ sent to BMW and odometer, fuel, tyre and service readings are returned and
 stored locally. This never happens unless you have connected a car.
 BMW's handling of that data is governed by BMW's own privacy policy.
 
-**2. DVSA MOT History** — if, and only if, you enrol a car with a registration
-plate. The registration is sent to the UK Driver and Vehicle Standards Agency's
-MOT History API to retrieve the car's make, model and MOT test history. This
-happens once at enrolment, and again whenever you manually refresh MOT data.
+**2. DVSA MOT History** — registration lookup is unavailable in the public
+App Store build. In development builds with the integration configured, the
+app can send a registration to the UK Driver and Vehicle Standards Agency's
+MOT History API to return make, model and MOT history. Adding a registration
+to the Garage in the App Store build keeps it in the app's records.
 
-**3. Fuel price map** — if, and only if, you open the fuel map or the
-add-refill form. Your current precise location is sent to
-`checkfuelprices.co.uk` to find nearby stations and their prices. Nothing else
-about you is sent with it, and it happens only while that screen is open. The
-app asks before the first such lookup.
+**3. Fuel prices** — if, and only if, you agree to it. Your precise location is
+sent to `checkfuelprices.co.uk` to find nearby stations and their prices.
+The request includes the coordinates and search radius. Tarmach does not add
+an account or an app user identifier to it. **The app asks before the first
+such lookup**, on the fuel map, and the fuel-price provider receives no lookup
+requests from the app unless you agree.
 
-Each of these is optional. The app records journeys perfectly well without any
-of them.
+Once you have agreed, three parts of the app use it:
+
+- the **fuel map**, while you are looking at it;
+- the **add-refill form**, to fill in the station you are standing at;
+- and the **forecourt reminder**, which checks the location of a stop the app
+  has noticed — a few minutes, somewhere you do not usually stop — so it can
+  ask whether you have just filled up. **This one happens in the background**,
+  while a journey is being recorded, rather than while you are looking at a
+  screen. It is the only lookup that does. You can turn it off on its own in
+  Settings › At the pump, and it is off entirely unless you have agreed to the
+  lookup above.
+
+**4. Apple Maps** — some map screens use Apple Maps for the basemap or for
+nearby places such as charging stations. Requests can include the area you
+are viewing or the location used for the search. Apple explains how it handles
+such requests in [Apple Maps & Privacy](https://www.apple.com/uk/legal/privacy/data/en/apple-maps/).
+
+If you export or share data, you choose where it goes. Your iPhone backup
+settings determine whether iOS includes app data in a device backup.
 
 ### While Tarmach is in beta (TestFlight)
 
@@ -84,20 +103,22 @@ iOS Settings › Privacy & Security › Analytics & Improvements.
 
 ## What is never collected
 
-- No account, sign-up, name or email address is required or requested.
+- You can use the app's journey and vehicle features without creating a
+  Tarmach account. BMW sign-in is managed by BMW for that optional feature.
 - No advertising, no advertising identifiers, no tracking across apps or
   websites, and no data sold or shared with data brokers. The app's privacy
   manifest declares tracking as `false`.
-- No analytics or telemetry of any kind is sent to the developer.
-- Your contacts, photos library, calendars and health data are not accessed.
+- The app does not include an analytics service.
+- The app does not read your contacts, calendars or health data. If you attach
+  a photo, the app receives the photo you select.
 
-## Why the app asks for location "Always"
+## Why the app asks for location access
 
-Journeys need to keep recording when your screen is off and the app is in the
-background — that is the entire function of the app. "Always" permission is
-what allows iOS to keep the recording alive while you drive. If you grant only
-"While Using", journeys can still be recorded, but only while the app is open
-on screen.
+With **While Using** access, you can start a journey in Tarmach and it can
+continue recording when the screen is locked. **Always** access is needed for
+a journey started by an automation while the app is in the background and for
+iOS to relaunch the app in the background to recover an interrupted journey.
+The app asks for it when you set up automatic starts.
 
 You can change or revoke this at any time in
 iOS Settings › Privacy & Security › Location Services › Tarmach.
@@ -112,15 +133,23 @@ You can:
 - **Delete individual records** — any journey, refill, service entry or
   photograph, from the screen it appears on.
 - **Delete everything** — Settings › About › What leaves the phone ›
-  **Delete all data**. This permanently erases every journey, place, vehicle,
-  service and modification record, fuel refill and photograph, and clears any
-  connected BMW sign-in and readings. It cannot be undone.
+  **Delete all data**. This erases saved journeys, places, vehicles, service
+  and modification records, fills, charges, their photos and motion captures.
+  It also clears any connected BMW sign-in and readings. Copies you exported
+  or shared are managed at their destination.
 - **Delete the app** — removing Tarmach from your iPhone removes its database
   and all photographs with it.
 
 To withdraw consent for the optional lookups: disconnect the BMW account in the
-Garage, stop refreshing MOT data, or decline the location prompt on the fuel
-map. Each is independent of the others.
+Garage; stop refreshing MOT data; or, for fuel prices, tap **Not now** when the
+fuel map asks — which switches the lookup off everywhere in the app, including
+the forecourt reminder, and not merely on that screen. If you have already
+agreed and want to undo it, **Delete all data** (below) returns the app to
+never having asked.
+
+Deleting all data also clears the app's list of forecourt stops it has already
+asked you about, which is kept outside the journey database and would otherwise
+survive the deletion.
 
 ## Your rights
 
@@ -145,12 +174,9 @@ them. It is intended for licensed drivers.
 
 ## A note on accuracy
 
-Speed, distance, braking, cornering and G-force figures come from the phone's
-own sensors, not from the car. The thresholds behind "harsh" events are still
-being validated against real driving. Treat every figure as an estimate, not as
-evidence for an insurance claim, a dispute, or anyone else's records. Tarmach
-is not navigation or driver assistance — do not interact with the phone while
-driving.
+Speed, distance, braking, cornering and G-force figures are estimates based
+on the phone's sensors. They are unsuitable as evidence for an insurance claim
+or dispute. Set up recording before setting off and use the app while parked.
 
 ## Changes to this policy
 
